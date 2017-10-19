@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "open-crowdfund",
+  "description": "Open Crowdfund as open source solution to crowdfund your own projects.",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Robin Wieruch <wrobin@gmx.net>",
   "dependencies": {
     "gatsby": "^1.9.63",
     "gatsby-link": "^1.6.21",
@@ -22,7 +22,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "format": "prettier es5 --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
