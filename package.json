@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Robin Wieruch <wrobin@gmx.net>",
   "dependencies": {
+    "currency-symbol-map": "^4.0.3",
     "gatsby": "^1.9.63",
     "gatsby-link": "^1.6.21",
     "gatsby-plugin-google-analytics": "^1.0.10",

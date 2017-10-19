@@ -1,6 +1,8 @@
+const GOOGLE_ANALYTICS_TRACKING_ID = 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID';
+
 module.exports = {
   siteMetadata: {
-    title: `Open Crowdfund`,
+    title: 'Open Crowdfund',
   },
   plugins: [
     {
@@ -12,7 +14,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID',
+        trackingId: GOOGLE_ANALYTICS_TRACKING_ID,
         anonymize: true,
       },
     },

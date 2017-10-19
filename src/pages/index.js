@@ -1,26 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const UserWrapper = styled.div`
+import Progress from '../components/Progress';
+import Checkout from '../components/Checkout';
+
+const ProfileWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 auto 12px auto;
+  margin: 20px 0;
   &:last-child {
     margin-bottom: 0;
   }
 `;
 
 const Avatar = styled.img`
-  flex: 0 0 96px;
-  width: 96px;
-  height: 96px;
   margin: 0;
 `;
 
 const Description = styled.div`
   flex: 1;
-  margin-left: 18px;
-  padding: 12px;
+  margin-left: 20px;
 `;
 
 const Username = styled.h2`
@@ -32,14 +31,14 @@ const Excerpt = styled.p`
   margin: 0;
 `;
 
-const User = props => (
-  <UserWrapper>
-    <Avatar src={props.avatar} alt="" />
+const Profile = ({ avatar, username, excerpt }) => (
+  <ProfileWrapper>
+    <Avatar src={avatar} alt="profile" />
     <Description>
-      <Username>{props.username}</Username>
-      <Excerpt>{props.excerpt}</Excerpt>
+      <Username>{username}</Username>
+      <Excerpt>{excerpt}</Excerpt>
     </Description>
-  </UserWrapper>
+  </ProfileWrapper>
 );
 
 const LandingPage = () => (
@@ -51,6 +50,7 @@ const LandingPage = () => (
           You and Your Research
         </a>”.
       </p>
+      <Checkout />
       <blockquote>
         <p>
           There is indeed an element of luck, and no, there isn’t. The prepared
@@ -63,13 +63,9 @@ const LandingPage = () => (
         </p>
       </blockquote>
     </div>
-    <User
-      username="Jane Doe"
-      avatar="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"
-      excerpt="I'm Jane Doe. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-    />
-    <User
-      username="Bob Smith"
+    <Progress />
+    <Profile
+      username="Robin Wieruch"
       avatar="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"
       excerpt="I'm Bob smith, a vertically aligned type of guy. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
     />

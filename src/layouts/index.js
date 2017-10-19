@@ -1,8 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import styled from 'styled-components';
 
-const TemplateWrapper = ({ children }) => (
+import Link from '../components/Link';
+
+const Footer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+`;
+
+const App = ({ children }) => (
   <div>
     <Helmet
       meta={[
@@ -23,11 +32,14 @@ const TemplateWrapper = ({ children }) => (
     >
       {children()}
     </div>
+    <Footer>
+      <p>Built by <Link href="https://www.robinwieruch.de/">Robin Wieruch</Link> 🐝</p>
+    </Footer>
   </div>
 );
 
-TemplateWrapper.propTypes = {
+App.propTypes = {
   children: PropTypes.func
 };
 
-export default TemplateWrapper;
+export default App;
