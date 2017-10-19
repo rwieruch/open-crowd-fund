@@ -7,6 +7,8 @@
     "gatsby": "^1.9.63",
     "gatsby-link": "^1.6.21",
     "gatsby-plugin-google-analytics": "^1.0.10",
+    "gatsby-plugin-manifest": "^1.0.8",
+    "gatsby-plugin-offline": "^1.0.10",
     "gatsby-plugin-react-helmet": "^1.0.5",
     "gatsby-plugin-styled-components": "^1.0.5",
     "gatsby-plugin-typography": "^1.7.10",
