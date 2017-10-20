@@ -22,8 +22,8 @@ npm run build --> public folder
 ## Utilities
 
 - google analytics
-- card TODO
 - offline support
+- card TODO
 
 ## Customize
 
@@ -33,6 +33,10 @@ npm run build --> public folder
 - global style in src/layouts/index.js
 - assets such as images can be found in static/
 
+## Hosted Solution
+
+Interested for a hosted solution whereas a small fee would apply but you wouldn't need to worry about the payment server and the firebase database? [Let us know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowdfund).
+
 ## Contribute
 
 `git clone git@github.com:rwieruch/open-crowdfund.git`
@@ -40,6 +44,6 @@ npm run build --> public folder
 `npm install`
 `gatsby develop`
 
-Prettier formatting: `npm run format`
+Formatting on the Command Line: `npm run format`
 
 Contribute in three steps: Create an [Issue](https://github.com/rwieruch/open-crowdfund/issues), discuss with maintainers and contributors in the issue, create a [Pull Request](https://github.com/rwieruch/open-crowdfund/pulls).

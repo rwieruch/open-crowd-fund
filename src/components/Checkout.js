@@ -12,7 +12,7 @@ import Input from './Input';
 const fromTalerToCent = amount =>
   amount * 100;
 
-const onToken = (amount, description) => token =>
+const onToken = (amount, description, onSuccess, onError) => token =>
   axios.post(CONFIGURATION.paymentServerUrl,
     {
       description,
@@ -20,8 +20,8 @@ const onToken = (amount, description) => token =>
       currency: CONFIGURATION.currency,
       amount: fromTalerToCent(amount)
     })
-    .then(() => this.setState({ isSuccess: true }))
-    .catch(() => this.setState({ isError: true }));
+    .then(onSuccess)
+    .catch(onError);
 
 const Form = styled.div`
   display: flex;
@@ -49,6 +49,8 @@ class Checkout extends Component {
     };
 
     this.onAmountChange = this.onAmountChange.bind(this);
+    this.onSuccess = this.onSuccess.bind(this);
+    this.onError = this.onError.bind(this);
   }
 
   onAmountChange(event) {
@@ -56,37 +58,50 @@ class Checkout extends Component {
     this.setState({ amount: value < 0 ? value * -1 : value });
   }
 
+  onSuccess() {
+    this.setState({ isSuccess: true });
+  }
+
+  onError() {
+    this.setState({ isError: true });
+  }
+
   render() {
-    const { amount } = this.state;
+    const { amount, isError, isSuccess } = this.state;
 
     return (
-      <Form>
-        <Label htmlFor="amount">Amount in {getSymbolFromCurrency(CONFIGURATION.currency)}:</Label>
+      <div>
+        <Form>
+          <Label htmlFor="amount">Amount in {getSymbolFromCurrency(CONFIGURATION.currency)}:</Label>
 
-        <Input
-          id="amount"
-          type="number"
-          min="1"
-          max="99999"
-          value={amount}
-          onChange={this.onAmountChange}
-          required
-        />
+          <Input
+            id="amount"
+            type="number"
+            min="1"
+            max="99999"
+            value={amount}
+            onChange={this.onAmountChange}
+            required
+          />
 
-        <ButtonWrapper>
-          <StripeCheckout
-            name={CONFIGURATION.checkoutTitle}
-            description={CONFIGURATION.checkoutDescription}
-            amount={fromTalerToCent(amount)}
-            token={onToken(amount, CONFIGURATION.description)}
-            currency={CONFIGURATION.currency}
-            stripeKey={CONFIGURATION.stripePublishableKey}
-            panelLabel={CONFIGURATION.checkoutButtonLabel}
-          >
-            <Button type="button">{CONFIGURATION.callToAction}</Button>
-          </StripeCheckout>
-        </ButtonWrapper>
-      </Form>
+          <ButtonWrapper>
+            <StripeCheckout
+              name={CONFIGURATION.checkoutTitle}
+              description={CONFIGURATION.checkoutDescription}
+              amount={fromTalerToCent(amount)}
+              token={onToken(amount, CONFIGURATION.description, this.onSuccess, this.onError)}
+              currency={CONFIGURATION.currency}
+              stripeKey={CONFIGURATION.stripePublishableKey}
+              panelLabel={CONFIGURATION.checkoutButtonLabel}
+            >
+              <Button type="button">{CONFIGURATION.callToAction}</Button>
+            </StripeCheckout>
+          </ButtonWrapper>
+        </Form>
+
+        { isError && <p>Something went wrong. The payment couldn't be processed.</p> }
+        { isSuccess && <p>Thanks for your funding.</p> }
+      </div>
     );
   }
 }
