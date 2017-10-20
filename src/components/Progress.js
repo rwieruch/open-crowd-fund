@@ -12,16 +12,21 @@ const getProgressPercentage = progress =>
     ? getProgressPercentageRaw(progress)
     : 100;
 
+const ProgressWrapper = styled.div`
+  margin: 20px 0;
+`;
+
 const ProgressBar = styled.div`
   display: flex;
   height: 25px;
   border: 1px solid #134896;
   border-radius: 5px;
+  border-radius: 5px;
 `;
 
 const ProgressAchieved = styled.div`
   display: flex;
-  background-color: #134896;
+  background-color: ${CONFIGURATION.themeColor};
 `;
 
 const ProgressToGo = styled.div`
@@ -49,13 +54,13 @@ class Progress extends Component {
   render() {
     const { progress } = this.state;
     return (
-      <div>
+      <ProgressWrapper>
         <span>{progress} <Currency /> raised of {CONFIGURATION.goal} <Currency /> goal</span>
         <ProgressBar>
           <ProgressAchieved style={{ width: `${getProgressPercentage(progress)}%` }} />
           <ProgressToGo style={{ width: `${100 - getProgressPercentage(progress)}%` }} />
         </ProgressBar>
-      </div>
+      </ProgressWrapper>
     );
   }
 }

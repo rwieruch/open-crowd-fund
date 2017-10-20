@@ -11,8 +11,14 @@ const Footer = styled.div`
   padding: 20px;
 `;
 
-const App = ({ children }) => (
-  <div>
+const AppWrapper = styled.div`
+  margin: 0 auto;
+  padding: 30px 10px 60px;
+  max-width: 610px;
+`;
+
+const App = ({ children }) =>
+  <AppWrapper>
     <Helmet
       meta={[
         {
@@ -33,10 +39,9 @@ const App = ({ children }) => (
       {children()}
     </div>
     <Footer>
-      <p>Built by <Link href="https://www.robinwieruch.de/">Robin Wieruch</Link> 🐝</p>
+      <small>Created<span> by <Link href="https://www.robinwieruch.de/">@rwieruch</Link></span> 🐝</small>
     </Footer>
-  </div>
-);
+  </AppWrapper>
 
 App.propTypes = {
   children: PropTypes.func

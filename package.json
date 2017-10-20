@@ -1,9 +1,10 @@
 {
   "name": "open-crowdfund",
-  "description": "Open Crowdfund as open source solution to crowdfund your own projects.",
+  "description": "Open Crowdfund as open source solution to crowd fund your own projects.",
   "version": "1.0.0",
   "author": "Robin Wieruch <wrobin@gmx.net>",
   "dependencies": {
+    "axios": "^0.16.2",
     "currency-symbol-map": "^4.0.3",
     "gatsby": "^1.9.63",
     "gatsby-link": "^1.6.21",
@@ -13,6 +14,7 @@
     "gatsby-plugin-react-helmet": "^1.0.5",
     "gatsby-plugin-styled-components": "^1.0.5",
     "gatsby-plugin-typography": "^1.7.10",
+    "react-stripe-checkout": "^2.6.3",
     "typography-theme-lincoln": "^0.15.11"
   },
   "keywords": [
