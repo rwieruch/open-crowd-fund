@@ -24,9 +24,7 @@ The server-side project, to be specific the payment server, is not included in t
 
 **Note:** You don't want to worry about a payment server or a database to collect the funding information? [Please let me know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowdfund). If there is an interest in such service, I would love to provide an affordable solution for you. If you don't want to worry about the client-side and server-side setup at all, please reach out as well to work with me on it.
 
-There are two requirements for the server-side application: a firebase database and a stripe payment server.
-
-Firebase is needed to store the funding information (e.g. who and how much). Follow these steps to setup and connect your own Firebase database:
+There are two requirements for the server-side application: a firebase database and a stripe payment server. Firebase is needed to store the funding information (e.g. who funded you and how much funded they). Follow these steps to setup and connect your own Firebase database:
 
 * create a [Firebase account and a Firebase project](https://firebase.google.com/) (free)
 * modify the Firebase -> Database -> Rules:
@@ -44,9 +42,7 @@ Firebase is needed to store the funding information (e.g. who and how much). Fol
 * [Secure your Firebase Project with Domain Restriction](https://stackoverflow.com/questions/35418143/how-to-restrict-firebase-data-modification) (otherwise other domains are able to write to your Firebase Database)
 * adjust your Firebase Plan, if you are expecting spikes in traffic for your campaign
 
-That's it for Firebase!
-
-Furthermore, you will need a Stripe payment server. The payment server is not included in this repository. Please use the following tutorial to setup a small [payment server](https://github.com/rwieruch/react-express-stripe). Otherwise feel free to take the payment server from [this repository in the backend folder](https://github.com/rwieruch/react-express-stripe).
+That's it for Firebase! Furthermore, you will need a Stripe payment server where you can receive your fundings. The payment server is not included in this repository. Please use the following tutorial to setup a small [payment server](https://github.com/rwieruch/react-express-stripe). Otherwise feel free to take the payment server from [this repository in the backend folder](https://github.com/rwieruch/react-express-stripe).
 
 * Create a [Stripe Account](https://stripe.com/) (free)
 * Client-side: add your Stripe API keys in *.env.development* and *.env.production*
