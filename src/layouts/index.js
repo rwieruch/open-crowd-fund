@@ -23,21 +23,14 @@ const App = ({ children }) =>
       meta={[
         {
           name: 'description',
-          content:
-            'Your open source solution to crowdfund your own projects and host it yourself.'
+          content: 'Your open source solution to crowdfund your own projects and host it yourself.'
         },
         { name: 'keywords', content: 'open crowdfund' }
       ]}
     />
-    <div
-      style={{
-        margin: '0 auto',
-        padding: '30px 10px 60px',
-        maxWidth: '610px'
-      }}
-    >
-      {children()}
-    </div>
+
+    {children()}
+
     <Footer>
       <small>Created<span> by <Link href="https://www.robinwieruch.de/">@rwieruch</Link></span> 🐝</small>
     </Footer>

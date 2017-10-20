@@ -39,7 +39,7 @@ const Profile = ({ avatar, username, excerpt }) => (
   </ProfileWrapper>
 );
 
-const LandingPage = () => (
+const FundingPage = () => (
   <div>
     <h1>The Road to learn React</h1>
     <p>Posted April 09, 2011</p>
@@ -112,4 +112,4 @@ const LandingPage = () => (
   </div>
 );
 
-export default LandingPage;
+export default FundingPage;
