@@ -5,6 +5,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import getSymbolFromCurrency from 'currency-symbol-map';
 
 import CONFIGURATION from '../crowdFundingConfiguration';
+import { database } from '../utils/firebase';
 
 import Button from './Button';
 import Input from './Input';
@@ -13,7 +14,7 @@ const fromTalerToCent = amount =>
   amount * 100;
 
 const onToken = (amount, description, onSuccess, onError) => token =>
-  axios.post(CONFIGURATION.paymentServerUrl,
+  axios.post(process.env.PAYMENT_SERVER_URL,
     {
       description,
       source: token.id,
@@ -59,6 +60,10 @@ class Checkout extends Component {
   }
 
   onSuccess() {
+    const { amount } = this.state;
+
+    database.ref('fundings').push(amount);
+
     this.setState({ isSuccess: true });
   }
 
@@ -91,7 +96,7 @@ class Checkout extends Component {
               amount={fromTalerToCent(amount)}
               token={onToken(amount, CONFIGURATION.checkoutDescription, this.onSuccess, this.onError)}
               currency={CONFIGURATION.currency}
-              stripeKey={CONFIGURATION.stripePublishableKey}
+              stripeKey={process.env.STRIPE_PUBLISHABLE_KEY}
               panelLabel={CONFIGURATION.checkoutButtonLabel}
             >
               <Button type="button">{CONFIGURATION.callToAction}</Button>

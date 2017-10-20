@@ -24,7 +24,7 @@ The client-side project is this project. You just need to provide your own infor
 
 There are two requirements for the server-side application: a firebase database and a stripe payment server. Firebase is needed to store the funding information (e.g. who funded you and how much funded they), but doesn't need to be hosted by yourself. The server-side project, to be specific the payment server, is not included in this repository. There is another GitHub repository where you could simply clone the server part. On the other hand, you could follow the provided tutorial to build your own minimal payment server from scratch. Here you get all the instructions on how to setup your server-side.
 
-**Note:** You don't want to worry about a payment server or a database to collect the funding information? [Please let me know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowdfund). If there is an interest in such service, I would love to provide an affordable solution for you. If you don't want to worry about the client-side and server-side setup at all, please reach out as well to work with me on it.
+**Note:** You don't want to worry about a payment server or a database to collect the funding information? [Please let me know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowdfund). If there is an interest in such service, I would love to provide an affordable solution for you. If you don't want to worry about the client-side and server-side setup at all, please reach out as well to work with me on it. [Get on the list for updates](https://www.getrevue.co/profile/open-crowdfund).
 
 #### Firebase Setup
 

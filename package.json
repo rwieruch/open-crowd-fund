@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "currency-symbol-map": "^4.0.3",
+    "firebase": "^4.6.0",
     "gatsby": "^1.9.63",
     "gatsby-link": "^1.6.21",
     "gatsby-plugin-google-analytics": "^1.0.10",

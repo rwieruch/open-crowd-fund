@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import getSymbolFromCurrency from 'currency-symbol-map';
 
 import CONFIGURATION from '../crowdFundingConfiguration';
+import { database } from '../utils/firebase';
 
 const getProgressPercentageRaw = progress =>
   progress / CONFIGURATION.goal * 100;
@@ -42,17 +43,36 @@ class Progress extends Component {
     super();
 
     this.state = {
-      progress: 0,
+      fundings: [],
     };
   }
 
   componentDidMount() {
-    // fetch progress from firebase TODO
-    setTimeout(() => this.setState(() => ({ progress: 4500 })), 1000);
+    const fundingsRef = database.ref('fundings');
+
+    fundingsRef.on('child_added', snapshot => {
+      const funding = {
+        amount: snapshot.val(),
+        id: snapshot.key,
+      };
+
+      this.setState(prevState => ({
+        fundings: [
+          funding,
+          ...prevState.fundings
+        ],
+      }));
+    });
   }
 
+  // componentDidMount() {
+  //   // fetch progress from firebase TODO
+  //   setTimeout(() => this.setState(() => ({ progress: 4500 })), 1000);
+  // }
+
   render() {
-    const { progress } = this.state;
+    const { fundings } = this.state;
+    const progress = fundings.reduce((result, value) => result + value.amount, 0);
     return (
       <ProgressWrapper>
         <span>{progress} <Currency /> raised of {CONFIGURATION.goal} <Currency /> goal</span>
