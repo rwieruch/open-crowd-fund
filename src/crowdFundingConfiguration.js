@@ -3,7 +3,7 @@ const CONFIGURATION = {
 
   // Funding Goal
   goal: '7500', // adjustable during funding campaign
-  currency: 'USD', // supported currencies at https://stripe.com/docs/currencies
+  currency: 'EUR', // supported currencies at https://stripe.com/docs/currencies
 
   // Checkout Form
   checkoutTitle: 'Thank you!', // just a message for your supporter
@@ -11,7 +11,6 @@ const CONFIGURATION = {
   checkoutButtonLabel: 'Fund',
   callToAction: 'Fund it!',
   defaultAmount: 25,
-  quickSelectAmounts: [25, 100, 250], // optional, can be an empty array
 
   // Payment
   paymentServerUrl: process.env.PAYMENT_SERVER_URL,

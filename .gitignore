@@ -5,5 +5,3 @@ public/
 .DS_Store
 yarn-error.log
 
-.env.production
-.env.development

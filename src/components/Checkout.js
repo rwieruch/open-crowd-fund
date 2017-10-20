@@ -89,7 +89,7 @@ class Checkout extends Component {
               name={CONFIGURATION.checkoutTitle}
               description={CONFIGURATION.checkoutDescription}
               amount={fromTalerToCent(amount)}
-              token={onToken(amount, CONFIGURATION.description, this.onSuccess, this.onError)}
+              token={onToken(amount, CONFIGURATION.checkoutDescription, this.onSuccess, this.onError)}
               currency={CONFIGURATION.currency}
               stripeKey={CONFIGURATION.stripePublishableKey}
               panelLabel={CONFIGURATION.checkoutButtonLabel}

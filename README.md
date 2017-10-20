@@ -1,48 +1,80 @@
 # Open Crowdfund
 
-Your open source solution to crowd fund your own projects and host it yourself.
+Your open source solution to crowd fund your own ideas and host it yourself.
 
 ## Setup
 
-`git clone git@github.com:rwieruch/open-crowdfund.git`
-`cd open-crowdfund`
-`npm install`
-`gatsby develop`
+* `git clone git@github.com:rwieruch/open-crowdfund.git`
+* `cd open-crowdfund`
+* `npm install`
+* `gatsby develop`
+* visit http://localhost:8000/
 
-- client side
--- firebase account, firebase open rules (decide on your own to create an account for ???)
--- stripe key
--- google analytics key
+### Client-side
 
-npm run build --> public folder
+The client-side project is this project. You just need to provide your own information for it and fill in your own content for your crowd funding project.
 
-- server side
--- use this tutorial to setup your payment server as a microservice with express and stripe
+* provide Firebase Credentials (read Server-side Setup)
+* provide Stripe Credentials (read Server-side Setup)
+* optional: provide Google Analytics Key in *gatsby-config.js*
 
-## Utilities
+### Server-side
 
-- google analytics
-- offline support
-- card TODO
+The server-side project, to be specific the payment server, is not included in this repository. But there is another GitHub repository where you could simply clone the server part. On the other hand, you could follow the provided tutorial to build your own minimal payment server from scratch. Here you get all the instructions on how to setup your server-side.
+
+**Note:** You don't want to worry about a payment server or a database to collect the funding information? [Please let me know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowdfund). If there is an interest in such service, I would love to provide an affordable solution for you. If you don't want to worry about the client-side and server-side setup at all, please reach out as well to work with me on it.
+
+There are two requirements for the server-side application: a firebase database and a stripe payment server.
+
+Firebase is needed to store the funding information (e.g. who and how much). Follow these steps to setup and connect your own Firebase database:
+
+* create a [Firebase account and a Firebase project](https://firebase.google.com/) (free)
+* modify the Firebase -> Database -> Rules:
+
+```
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+```
+
+* Client-side: add your Firebase credentials in *src/crowdFundingConfiguration*
+* [Secure your Firebase Project with Domain Restriction](https://stackoverflow.com/questions/35418143/how-to-restrict-firebase-data-modification) (otherwise other domains are able to write to your Firebase Database)
+* adjust your Firebase Plan, if you are expecting spikes in traffic for your campaign
+
+That's it for Firebase!
+
+Furthermore, you will need a Stripe payment server. The payment server is not included in this repository. Please use the following tutorial to setup a small [payment server](https://github.com/rwieruch/react-express-stripe). Otherwise feel free to take the payment server from [this repository in the backend folder](https://github.com/rwieruch/react-express-stripe).
+
+* Create a [Stripe Account](https://stripe.com/) (free)
+* Client-side: add your Stripe API keys in *.env.development* and *.env.production*
+* Client-side: add your payment server URL in *.env.development* and *.env.production* (e.g. http://localhost:8080 for development, but http://myapidomain.com for your production payment server)
+
+* start your payment server on the command line, verify that the localhost URL where it is started is the same as your payment server URL that is added in the client-side *.env.development*
 
 ## Customize
 
-- own favion in static/favicon wtih https://realfavicongenerator.net/
-- gatsby plugins with confguration in gatsby-config.js  , find more plugins at URL https://www.gatsbyjs.org/docs/plugins/
-- meta tags for application head in src/layouts/index.js
-- global style in src/layouts/index.js
-- assets such as images can be found in static/
+* use an own favion in *static/favicon* (e.g. use https://realfavicongenerator.net/)
+* add, remove or modify gatsby [plugins](https://www.gatsbyjs.org/docs/plugins/) in *gatsby-config.js*
+* add, remove or modify meta tags in *src/layouts/index.js*
+* add, remove or modify global style in *src/layouts/index.js*
+* add, remove or modify assets, such as images, in *static/*
 
-## Hosted Solution
+## Deploy to Production
 
-Interested for a hosted solution whereas a small fee would apply but you wouldn't need to worry about the payment server and the firebase database? [Let us know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowdfund).
+* verify that the payment with Stripe works on localhost when client-side and payment server are running
+* deploy your client-side project (this repository) to your hosting solution (read up the [Gatsby documentation](https://www.gatsbyjs.org) on how to deploy your application)
+* deploy your payment server to your hosting solution
+* make sure that your payment server URL matches in *.env.production* with your domain for your payment server
 
 ## Contribute
 
-`git clone git@github.com:rwieruch/open-crowdfund.git`
-`cd open-crowdfund`
-`npm install`
-`gatsby develop`
+* `git clone git@github.com:rwieruch/open-crowdfund.git`
+* `cd open-crowdfund`
+* `npm install`
+* `gatsby develop`
 
 Formatting on the Command Line: `npm run format`
 
