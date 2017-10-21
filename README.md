@@ -9,15 +9,13 @@ Your open source solution to crowd fund your own ideas and host it yourself. Red
 * `npm install`
 * `gatsby develop`
 * visit http://localhost:8000/ after you have setup Firebase and Stripe (see below)
-* modify funding configuration in *src/crowdFundingConfiguration.js*
-* modify funding content in *src/components/Content.js*
 
 ### Client-side Setup
 
-The client-side project is this project. You just need to provide your configurational information for it and fill in your own content for your own crowd funding project.
+The client-side project is this project. You just need to provide your configurational information for it and fill in your own content for your own crowd funding project (read Customize).
 
-* provide Firebase Credentials (read Server-side Setup)
-* provide Stripe Credentials (read Server-side Setup)
+* provide Firebase Credentials (read External Services Setup)
+* provide Stripe Credentials (read External Services Setup)
 * optional: provide Google Analytics Key in *gatsby-config.js*
 
 ### External Services Setup
@@ -28,7 +26,7 @@ Firebase is needed to store the funding information (e.g. who funded you and how
 
 Furthermore, the payment server is not included in this repository. There is another GitHub repository where you could simply clone partly the payment server. On the other hand, you could follow the provided tutorial to build your own minimal payment server from scratch. Here you get all the instructions on how to setup your payment server.
 
-**Note:** You don't want to worry about a payment server or a database to collect the funding information? [Please let me know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowdfund). If there is any interest in such service, I would love to provide an affordable solution for you. If you don't want to worry about the client-side and server-side setup at all, please reach out to me as well. [Get on the list for updates](https://www.getrevue.co/profile/open-crowdfund) in case there will be a hosted solution.
+**Note:** You don't want to worry about a payment server or a database to collect the funding information? [Please let me know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowdfund). If there is any interest in such service, I would love to provide an affordable solution for you. If you don't want to worry about the client-side, payment server and Firebase at all, please reach out to me as well. [Get on the list for updates](https://www.getrevue.co/profile/open-crowdfund) in case there will be a hosted solution.
 
 #### Firebase Setup
 
@@ -76,6 +74,8 @@ Furthermore, you will need a Stripe payment server where you can receive your fu
 
 ## Customize
 
+* modify funding configuration in *src/crowdFundingConfiguration.js*
+* modify funding content in *src/components/Content.js*
 * use an own favion in *static/favicon* (e.g. use https://realfavicongenerator.net/)
 * add, remove or modify meta tags in *src/layouts/index.js*
 * add, remove or modify global style in *src/layouts/index.js*

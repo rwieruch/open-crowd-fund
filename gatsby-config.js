@@ -2,7 +2,7 @@ const GOOGLE_ANALYTICS_TRACKING_ID = 'UA-65599459-7';
 
 module.exports = {
   siteMetadata: {
-    title: 'Open Crowdfund',
+    title: 'Open Crowd Fund',
   },
   plugins: [
     {
