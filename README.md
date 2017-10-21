@@ -1,4 +1,4 @@
-# Open Crowd Fund 🐝
+# 🐣 Open Crowd Fund
 
 Your open source solution to crowd fund your own ideas and host it yourself. Reduce your fees to a minimum by using an own crowd funding solution as alternative to enterprise crowdfundings.
 

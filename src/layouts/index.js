@@ -49,7 +49,7 @@ const App = ({ children }) => (
           {' '}
           by <Link href="https://www.robinwieruch.de/">@rwieruch</Link>
         </span>{' '}
-        🐝
+        🐣
       </small>
     </Footer>
   </AppWrapper>
