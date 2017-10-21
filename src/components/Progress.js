@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import getSymbolFromCurrency from 'currency-symbol-map';
 
+import Currency from './Currency';
+import withFundings from './withFundings';
 import CONFIGURATION from '../crowdFundingConfiguration';
-import { database } from '../utils/firebase';
 
 const getProgressPercentageRaw = progress =>
   progress / CONFIGURATION.goal * 100;
@@ -32,57 +32,28 @@ const ProgressAchieved = styled.div`
 
 const ProgressToGo = styled.div`
   display: flex;
-  backgroundColor: #FFFFFF;
+  backgroundcolor: #ffffff;
 `;
 
-const Currency = () =>
- <span>{getSymbolFromCurrency(CONFIGURATION.currency)}</span>
+const Progress = ({ fundings }) => {
+  const progress = fundings.reduce((result, value) => result + value.amount, 0);
 
-class Progress extends Component {
-  constructor() {
-    super();
+  return (
+    <ProgressWrapper>
+      <span>
+        {progress} <Currency /> raised of {CONFIGURATION.goal} <Currency /> goal
+      </span>
 
-    this.state = {
-      fundings: [],
-    };
-  }
+      <ProgressBar>
+        <ProgressAchieved
+          style={{ width: `${getProgressPercentage(progress)}%` }}
+        />
+        <ProgressToGo
+          style={{ width: `${100 - getProgressPercentage(progress)}%` }}
+        />
+      </ProgressBar>
+    </ProgressWrapper>
+  );
+};
 
-  componentDidMount() {
-    const fundingsRef = database.ref('fundings');
-
-    fundingsRef.on('child_added', snapshot => {
-      const funding = {
-        amount: snapshot.val(),
-        id: snapshot.key,
-      };
-
-      this.setState(prevState => ({
-        fundings: [
-          funding,
-          ...prevState.fundings
-        ],
-      }));
-    });
-  }
-
-  // componentDidMount() {
-  //   // fetch progress from firebase TODO
-  //   setTimeout(() => this.setState(() => ({ progress: 4500 })), 1000);
-  // }
-
-  render() {
-    const { fundings } = this.state;
-    const progress = fundings.reduce((result, value) => result + value.amount, 0);
-    return (
-      <ProgressWrapper>
-        <span>{progress} <Currency /> raised of {CONFIGURATION.goal} <Currency /> goal</span>
-        <ProgressBar>
-          <ProgressAchieved style={{ width: `${getProgressPercentage(progress)}%` }} />
-          <ProgressToGo style={{ width: `${100 - getProgressPercentage(progress)}%` }} />
-        </ProgressBar>
-      </ProgressWrapper>
-    );
-  }
-}
-
-export default Progress;
+export default withFundings(Progress);

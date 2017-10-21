@@ -11,7 +11,7 @@ const Button = styled.button`
   color: ${CONFIGURATION.themeColor};
   border-radius: 5px;
   background-clip: padding-box;
-  padding: .5em 1.5em;
+  padding: 0.5em 1.5em;
   font-weight: bold;
   transition: all 0.2s ease-out;
   background: transparent;
@@ -26,12 +26,12 @@ const Button = styled.button`
   &:hover {
     transition: 0.2s ease;
     background-color: ${CONFIGURATION.themeColor};
-    color: #FFFFFF !important;
+    color: #ffffff !important;
   }
 
   &:focus {
     outline: none;
   }
-`
+`;
 
 export default Button;

@@ -6,6 +6,6 @@ const Input = styled.input`
   outline: 0;
   background: transparent;
   border-bottom: 1px solid black;
-`
+`;
 
 export default Input;

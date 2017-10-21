@@ -15,7 +15,10 @@
     "gatsby-plugin-react-helmet": "^1.0.5",
     "gatsby-plugin-styled-components": "^1.0.5",
     "gatsby-plugin-typography": "^1.7.10",
+    "gatsby-remark-emoji": "0.0.1",
+    "gatsby-transformer-remark": "^1.7.17",
     "react-stripe-checkout": "^2.6.3",
+    "react-syntax-highlighter": "^5.7.1",
     "typography-theme-lincoln": "^0.15.11"
   },
   "keywords": [
