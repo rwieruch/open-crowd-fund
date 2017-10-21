@@ -26,7 +26,7 @@ Firebase is needed to store the funding information (e.g. who funded you and how
 
 Furthermore, the payment server is not included in this repository. There is another GitHub repository where you could simply clone partly the payment server. On the other hand, you could follow the provided tutorial to build your own minimal payment server from scratch. Here you get all the instructions on how to setup your payment server.
 
-**Note:** You don't want to worry about a payment server or a database to collect the funding information? [Please let me know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowdfund). If there is any interest in such service, I would love to provide an affordable solution for you. If you don't want to worry about the client-side, payment server and Firebase at all, please reach out to me as well. [Get on the list for updates](https://www.getrevue.co/profile/open-crowdfund) in case there will be a hosted solution.
+**Note:** You don't want to worry about a payment server or a database to collect the funding information? [Please let me know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowd%20Fund). If there is any interest in such service, I would love to provide an affordable solution for you. If you don't want to worry about the client-side, payment server and Firebase at all, please reach out to me as well. [Get on the list for updates](https://www.getrevue.co/profile/open-crowdfund) in case there will be a hosted solution.
 
 #### Firebase Setup
 
@@ -58,7 +58,7 @@ Furthermore, you will need a Stripe payment server where you can receive your fu
 * Create a [Stripe Account](https://stripe.com/) (free)
 * Application: add your public Stripe API keys in *.env.development* and *.env.production*
 * Application: add your payment server URL in *.env.development* and *.env.production*
-  * e.g. http://localhost:8080 for development if your payment server runs under this address, but http://myapidomain.com for your production payment server that you host with your own domain
+  * e.g. http://localhost:8080 for development if your development payment server runs under this address, but http://yourdomain.com for your production payment server that you host with an own domain or IP address
 
 * start your payment server on the command line
   * verify that the localhost URL where it is started is the same as your payment server URL that is added in the client-side *.env.development*
@@ -69,7 +69,7 @@ Furthermore, you will need a Stripe payment server where you can receive your fu
 * run your client-side application and your payment server on the command line
 * visit your client-side application in the browser
 * fund the project with a [test credit card](https://stripe.com/docs/testing#cards)
-* verify 1) that the funding progress updates and 2) the test payment is visible at your Stripe dashboard
+* verify 1) that the funding progress updates and 2) the test payment is visible in your Stripe dashboard
 * you are ready to deploy it!
 
 ## Customize
@@ -115,4 +115,6 @@ Follow further [installation instructions for the backend](https://github.com/rw
 
 Follow further installation instructions from this README to provide the necessary configuration.
 
-Formatting on the Command Line: `npm run format`
+* Formatting on the Command Line: `npm run format`
+
+Thanks for your contribution. I am looking forward to it.
