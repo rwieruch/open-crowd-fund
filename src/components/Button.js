@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import CONFIGURATION from '../crowdFundingConfiguration';
+import CONFIGURATION from '../configuration';
 
 const Button = styled.button`
   display: inline-block;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import withFundings from './withFundings';
 import Currency from './Currency';
 
-const Progress = ({ fundings }) => (
+const Backers = ({ fundings }) => (
   <div>
     {fundings.length ? (
       <div>
@@ -23,4 +23,4 @@ const Progress = ({ fundings }) => (
   </div>
 );
 
-export default withFundings(Progress);
+export default withFundings(Backers);

@@ -1,15 +1,16 @@
 import React from 'react';
 
-import Content from '../components/Content';
+import Content from '../Content';
 import Progress from '../components/Progress';
 import Checkout from '../components/Checkout';
 import Backers from '../components/Backers';
 
 const FundingPage = () => (
   <div>
-    <Content />
-    <Progress />
-    <Checkout />
+    <Content>
+      <Progress />
+      <Checkout />
+    </Content>
     <Backers />
   </div>
 );

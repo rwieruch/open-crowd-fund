@@ -35,6 +35,12 @@ const App = ({ children }) => (
         },
         { name: 'keywords', content: 'open crowd fund alternative' }
       ]}
+      links={[{
+        rel: 'shortcut icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: __PATH_PREFIX__ + '/favicons/favicon-16x16.png',
+      }]}
     />
 
     {children()}
@@ -42,8 +48,8 @@ const App = ({ children }) => (
     <Footer>
       <small>
         Powered by{' '}
-        <Link href="https://github.com/rwieruch/open-crowdfund">
-          Open Crowd Fund
+        <Link href="https://github.com/rwieruch/open-crowd-fund">
+          <span>Open Crowd</span> Fund
         </Link>{' '}
         and created<span>
           {' '}

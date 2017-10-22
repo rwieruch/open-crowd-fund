@@ -74,8 +74,8 @@ Furthermore, you will need a Stripe payment server where you can receive your fu
 
 ## Customize
 
-* modify funding configuration in *src/crowdFundingConfiguration.js*
-* modify funding content in *src/components/Content.js*
+* modify funding configuration in *src/configuration.js*
+* modify funding content in *src/Content.js*
 * use an own favion in *static/favicon* (e.g. use https://realfavicongenerator.net/)
 * add, remove or modify meta tags in *src/layouts/index.js*
 * add, remove or modify global style in *src/layouts/index.js*

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Currency from './Currency';
 import withFundings from './withFundings';
-import CONFIGURATION from '../crowdFundingConfiguration';
+import CONFIGURATION from '../configuration';
 
 const getProgressPercentageRaw = progress =>
   progress / CONFIGURATION.goal * 100;

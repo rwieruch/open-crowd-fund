@@ -4,7 +4,7 @@ import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import getSymbolFromCurrency from 'currency-symbol-map';
 
-import CONFIGURATION from '../crowdFundingConfiguration';
+import CONFIGURATION from '../configuration';
 import { database } from '../utils/firebase';
 
 import Button from './Button';

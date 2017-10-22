@@ -21,7 +21,7 @@ const Banner = styled.img`
   height: 400px;
 `;
 
-const Content = () => (
+const Content = ({ children }) => (
   <div>
     <BannerWrapper>
       <Banner
@@ -70,9 +70,10 @@ const Content = () => (
     </blockquote>
 
     <p>
-      The feedback about those ebooks that I received the most was about the
-      usage of concise JavaScript that I accomplish by using functional
-      programming principles. Yet the code stays readable and maintainable.
+      The feedback about the book was incredible and suprisingly good.
+      The one feedback that I received the most was about the
+      usage of concise JavaScript which is accomplished by using functional
+      programming principles. Hence the code stays readable and maintainable in the long run.
     </p>
 
     <p>
@@ -96,18 +97,19 @@ const Content = () => (
       Therefore, I wanted to give crowdfunding a shot. 🌟 It would give me the
       neccessary fundings to work fulltime on the ebook for the next two months.
       If you like to see an ever green JavaScript ebook, driven by the
-      community, about concise and functional JavaScript, you can support it
+      community, about functional and concise JavaScript, you can support it
       now.
     </p>
+
+    {children}
 
     <h2>My Plan</h2>
 
     <p>
       I want to write the ebook almost fulltime for the next 2 months and you
-      can follow me in realtime on this journey. It should give you a clear path
-      beyond the basics of JavaScript. It is aimed at intermediate JavaScript
-      developers, however, I believe advanced JavaScript developers would learn
-      the one or other trick as well from it.
+      can <a href="https://github.com/rwieruch/concise-javascript">follow me in realtime</a> on this journey.
+      It should give you a clear path beyond the basics of JavaScript. It is aimed at intermediate JavaScript
+      developers, however, I believe advanced JavaScript developers can learn the one or other trick as well from it.
     </p>
 
     <blockquote>
@@ -135,9 +137,8 @@ const Content = () => (
     </SyntaxHighlighter>
 
     <p>
-      The primary idea is to show you refactorings from loop, switch case and
-      if-else statements to using functions such as map, reduce, and filter in a
-      concise way.
+      By using concepts such as higher order functions and newer versions such as JavaScript ES6,
+      you can come up with a concise composition of pure JavaScript functions.
     </p>
 
     <SyntaxHighlighter language="javascript" style={monokai}>
@@ -145,18 +146,41 @@ const Content = () => (
     </SyntaxHighlighter>
 
     <p>
-      But it should go even deeper by implementing these built-in
-      functionalities from vanilla JavaScript or popular utility libraries such
-      as <a href="https://lodash.com/">Lodash</a> and{' '}
-      <a href="http://ramdajs.com/">Ramda</a> on your own, showing how they work
-      in a functional programming context, and getting comfortable with advanced
-      functionalities such as curry and flow functions.
+      The primary idea is to show you refactorings from loops to using functions such as map, reduce, and filter in a
+      concise way. It breaks your code into smaller blocks and you avoid growing the business logic inside your loops.
     </p>
 
+    <SyntaxHighlighter language="javascript" style={monokai}>
+      {codeStringThree}
+    </SyntaxHighlighter>
+
     <p>
-      Furthermore, the ebook should be a practical way to learn those things. So
-      you will code youself while reading the ebook to enforce your learnings. I
-      aim to enrich it with exercises as well.
+      It breaks your code apart into smaller problem solving blocks.
+      These function blocks become reusable  for other parts of your application.
+      Keeping your code in such functions, makes it maintainable for the longhaul.
+      You can test those functions in isolation, but also in combination with each other.
+      That's why the book attempts to teach those JavaScript refactorings in a TDD approach.
+    </p>
+
+    <SyntaxHighlighter language="javascript" style={monokai}>
+      {codeStringTest}
+    </SyntaxHighlighter>
+
+    <p>
+      However, the ebook should go even furhter by implementing these built-in
+      functionalities from vanilla JavaScript or popular utility libraries such
+      as <a href="https://lodash.com/">Lodash</a> and{' '}
+      <a href="http://ramdajs.com/">Ramda</a> from scratch.
+    </p>
+
+    <SyntaxHighlighter language="javascript" style={monokai}>
+      {codeStringFour}
+    </SyntaxHighlighter>
+
+    <p>
+      Furthermore, the ebook should be a practical way to learn about those refactoring. So
+      you will code youself while reading the ebook, doing exercises and write tests before refactoring something first.
+      It highly emphasizes to enforce your learnings.
     </p>
 
     <h2>Goals and Perks</h2>
@@ -177,28 +201,34 @@ const Content = () => (
         editor/proofreader!
       </li>
       <li>
-        If more than <strong>4000 €</strong> are funded, I am hiring an
-        illustrator!
+        If more than <strong>4500 €</strong> are funded, I am hiring an
+        illustrator for the cover!
       </li>
       <li>
-        If more than <strong>5000 €</strong> are funded, I provide useful source
-        code projects to enhance the learning experience!
+        If more than <strong>5000 €</strong> are funded, I will find people to translate it!
+      </li>
+      <li>
+        If more than <strong>7500 €</strong> are funded, I provide useful source
+        code projects on GitHub to enhance the learning experience!
       </li>
     </ul>
 
     <p>
       The payments are handled by <a href="https://stripe.com/">Stripe</a> and
-      thus your credit card details are securely managed by them. Furthermore,
-      the ebook will be available for free on an official website and GitHub
-      repository. So what are the perks of contributon to this crowdfunding
+      thus your credit card details are securely managed by them. No credit card information is saved on my server.
+    </p>
+
+    <p>
+      So what are the perks of contributon to this crowdfunding
       campaing if it is not only a free JavaScript ebook for you and the
-      community?
+      community? The ebook will be available for free on an official website and GitHub
+      repository.
     </p>
 
     <ul>
       <li>
         If you contribute <strong>5 € or more</strong>, you will be notified
-        about the release to grab a free eboob in PDF, EPUB or MOBI.
+        about the release to grab a free ebook in PDF, EPUB or MOBI.
       </li>
       <li>
         If you contribute <strong>25 € or more</strong>, you can choose to be
@@ -232,28 +262,106 @@ const Content = () => (
       this time I hope to get the help of the community to produce a free ebook
       as a fulltime profession.
     </p>
+
+    {children}
   </div>
 );
 
 const codeStringOne = `
-  // 1
-  const popularArticles = articles.filter(function isPopular(article) {
+  // 1: filter a list of articles by popularity
+  const popularArticles = articles.filter(function (article) {
     return article.comments > 42;
   });
 
-  // 3
+  // 2: extracting and naming the function
   function isPopular(article) {
     return article.comments > 42;
   }
   const popularArticles = articles.filter(isPopular);
 
-  // 4
+  // 3: using ES6 arrow functions to make it concise
   const isPopular = (article) => article.comments > 42;
   const popularArticles = articles.filter(isPopular);
 `;
 
 const codeStringTwo = `
-  // 1
+  // 1: filter a list of articles by pattern matching
+  const string = 'JavaScript ES6';
+  const articlesByName = articles.filter(function (article) {
+    return article.name.indexOf(string) !== -1;
+  });
+
+  // 2: using ES6 includes built-in function
+  const string = 'JavaScript ES6';
+  const articlesByName = articles.filter(function (article) {
+    return article.name.includes(string);
+  });
+
+  // 3: extracting and naming the function
+  const string = 'JavaScript ES6';
+  function includesName(article) {
+    return article.name.includes(string);
+  }
+  const articlesByName = articles.filter(includesName);
+
+  // 4: using a higher order function to have pure functions
+  const string = 'JavaScript ES6';
+  function includesName(pattern) {
+    return function (article) {
+      return article.name.includes(pattern);
+    }
+  }
+  const articlesByName = articles.filter(includesName(string));
+
+  // 5: using ES6 arrow functions to make it concise
+  const string = 'JavaScript ES6';
+  const includesName = (pattern) => (article) =>
+    article.name.includes(pattern);
+  const articlesByName = articles.filter(includesName(string));
+`;
+
+const codeStringThree = `
+  // 1: get popular authors depending on article popularity
+  const popularAuthors = [];
+  for (let i = 0; i < articles.length; i++) {
+    if (articles[i].comments > 42) {
+      popularAuthors.push(article[i]);
+    }
+  }
+
+  // 2: extract two separate functionalities:
+  // filter articles by popularity
+  // map from article to author
+  function isPopular(article) {
+    return article.comments > 42;
+  }
+  function toAuthor(article) {
+    return article.author;
+  }
+  const popularAuthors = articles
+    .filter(isPopular)
+    .map(toAuthor);
+
+  // 3: using ES6 arrow functions to make it concise
+  const isPopular = (article) => article.comments > 42;
+  const toAuthor = (article) => article.author;
+  const popularAuthors = articles
+    .filter(isPopular)
+    .map(toAuthor);
+
+  // 4: using non built-in functions from a third-party library
+  const isPopular = (article) => article.comments > 42;
+  const toAuthor = (article) => article.author;
+  const getPopularAuthors = flow(
+    filter(isPopular),
+    map(toAuthor)
+  );
+
+  const popularAuthors = getPopularAuthors(articles);
+`;
+
+const codeStringFour = `
+  // 1: grouping articles by type
   const articlesGroupedByType = {};
   for (let i = 0; i < articles.length; i++) {
     let article = articles[i];
@@ -266,7 +374,7 @@ const codeStringTwo = `
     }
   }
 
-  // 2
+  // 2: using a reduce function instead of a for loop
   const articlesGroupedByType = articles.reduce((result, article) => {
     if (result[article.type]) {
       result[article.type].push(article);
@@ -277,7 +385,7 @@ const codeStringTwo = `
     return result;
   }, {});
 
-  // 3
+  // 3: using a ternary operator instead of an if else statement
   const articlesGroupedByType = articles.reduce((result, article) => {
     result[article.type] = result[article.type]
       ? result[article.type].push(article)
@@ -286,7 +394,7 @@ const codeStringTwo = `
     return result;
   }, {});
 
-  // 4
+  // 4: extracting the function
   const groupByType = (result, article) => {
     result[article.type] = result[article.type]
       ? result[article.type].push(article)
@@ -296,6 +404,12 @@ const codeStringTwo = `
   }
 
   const articlesGroupedByType = articles.reduce(groupByType, {});
+`;
+
+const codeStringTest = `
+  assert isPopular
+  assert toAuthor
+  assert getPopularAuthors
 `;
 
 export default Content;
