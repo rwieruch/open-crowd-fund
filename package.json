@@ -1,6 +1,6 @@
 {
-  "name": "open-crowdfund",
-  "description": "Open Crowdfund as open source solution to crowd fund your own projects.",
+  "name": "open-crowd-fund",
+  "description": "Open Crowd Fund as open source alternative to crowd fund your own projects.",
   "version": "1.0.0",
   "author": "Robin Wieruch <wrobin@gmx.net>",
   "dependencies": {
@@ -22,7 +22,7 @@
     "typography-theme-lincoln": "^0.15.11"
   },
   "keywords": [
-    "gatsby"
+    "open crowd fund alternative"
   ],
   "license": "MIT",
   "main": "n/a",

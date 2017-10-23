@@ -72,6 +72,7 @@ Furthermore, you will need a Stripe payment server where you can receive your fu
 * visit your client-side application in the browser
 * fund the project with a [test credit card](https://stripe.com/docs/testing#cards)
 * verify 1) that the funding progress updates and 2) the test payment is visible in your Stripe dashboard
+* add your *.env.production* and *.env.development* to your .gitignore
 * you are ready to deploy it!
 
 ## Customize
