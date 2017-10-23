@@ -2,6 +2,8 @@
 
 Your open source solution to crowd fund your own ideas and host it yourself. Reduce your fees to a minimum by using an own crowd funding solution as alternative to enterprise crowdfundings.
 
+[Demo](https://www.concisejavascript.org/)
+
 ## Setup
 
 * `git clone git@github.com:rwieruch/open-crowdfund.git`

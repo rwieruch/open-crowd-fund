@@ -15,10 +15,13 @@ const fromTalerToCent = amount => amount * 100;
 const onToken = (amount, description, onSuccess, onError) => token =>
   axios
     .post(process.env.PAYMENT_SERVER_URL, {
-      description,
-      source: token.id,
-      currency: CONFIGURATION.currency,
-      amount: fromTalerToCent(amount)
+      stripeBody: {
+        description,
+        source: token.id,
+        currency: CONFIGURATION.currency,
+        amount: fromTalerToCent(amount)
+      },
+      paymentServer: 'CONCISEJAVASCRIPTORG'
     })
     .then(onSuccess)
     .catch(onError);

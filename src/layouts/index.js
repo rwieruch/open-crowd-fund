@@ -20,7 +20,6 @@ const AppWrapper = styled.div`
   ul,
   li {
     margin-left: 0px;
-    list-style: none;
   }
 `;
 
@@ -35,12 +34,14 @@ const App = ({ children }) => (
         },
         { name: 'keywords', content: 'open crowd fund alternative' }
       ]}
-      links={[{
-        rel: 'shortcut icon',
-        type: 'image/png',
-        sizes: '16x16',
-        href: __PATH_PREFIX__ + '/favicons/favicon-16x16.png',
-      }]}
+      links={[
+        {
+          rel: 'shortcut icon',
+          type: 'image/png',
+          sizes: '16x16',
+          href: __PATH_PREFIX__ + '/favicons/favicon-16x16.png'
+        }
+      ]}
     />
 
     {children()}
@@ -53,7 +54,7 @@ const App = ({ children }) => (
         </Link>{' '}
         and created<span>
           {' '}
-          by <Link href="https://www.robinwieruch.de/">@rwieruch</Link>
+          by <Link href="https://www.robinwieruch.de/">Robin <span>Wieruch</span></Link>
         </span>{' '}
         🐣
       </small>
