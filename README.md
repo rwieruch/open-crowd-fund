@@ -2,7 +2,7 @@
 
 Your open source solution to crowd fund your ideas. Take control over your fundings, stay flexible by creating the content for the funding campaign yourself, and minimize fees to a minimum by using an own crowd funding solution as alternative to enterprise crowdfunding applications.
 
-[Demo](https://www.concisejavascript.org/) | Powered by [Gatsby](https://github.com/gatsbyjs/gatsby)
+[Demo (yet real Campaign)](https://www.concisejavascript.org/) | Powered by [Gatsby](https://github.com/gatsbyjs/gatsby)
 
 * Use your own domain
 * Create your own content
@@ -35,7 +35,7 @@ First, Firebase is needed to store the funding information (e.g. who funded you 
 
 Second, the payment server is not included in this repository. There is another GitHub repository where you could simply clone partly the payment server. On the other hand, you could follow the provided tutorial to build your own minimal payment server from scratch. Here you get all the instructions on how to setup your payment server.
 
-**Note:** You don't want to worry about a payment server or a database? [Please let me know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowd%20Fund). If there is any interest in such service, it would be interesting to provide such a solution. If you don't want to worry about the payment server, Firebase database and application setup at all, you can reach out to me as well. [Get on the list for updates](https://www.getrevue.co/profile/open-crowdfund) in case there will be any updates for a hosted solution.
+**Note:** You don't want to worry about a payment server or a database? [Please let me know](mailto:opencrowdfund@gmail.com?Subject=Hello%20Open%20Crowd%20Fund). If there is any interest in such service, it would be interesting to provide such a solution. If you don't want to worry about the payment server, Firebase database and application setup at all, you can reach out to me as well. [Get on the list for updates](https://www.getrevue.co/profile/open-crowdfund) in case there will be any updates for a hosted solution.
 
 #### Firebase Setup
 
