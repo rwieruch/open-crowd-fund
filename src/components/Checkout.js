@@ -71,7 +71,7 @@ class Checkout extends Component {
     const { amount, username } = this.state;
 
     database.ref('fundings').push({
-      amount,
+      amount: +amount,
       email: data.success.source.name,
       username,
       currency: CONFIGURATION.currency
