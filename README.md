@@ -2,15 +2,13 @@
 
 Your open source solution to crowd fund your ideas. Take control over your fundings, stay flexible by creating the content for the funding campaign yourself, and minimize fees to a minimum by using an own crowd funding solution as alternative to enterprise crowdfunding applications.
 
-[Demo](https://www.concisejavascript.org/) || Powered by [Gatsby](https://github.com/gatsbyjs/gatsby) || Created by [@rwieruch](https://www.robinwieruch.de/)
+[Demo](https://www.concisejavascript.org/) | Powered by [Gatsby](https://github.com/gatsbyjs/gatsby)
 
 * Use your own domain
 * Create your own content
-* Charge and secure fundings by Credit Card with Stripe
-  * and soon PayPal?
+* Charge and secure fundings by Credit Card with Stripe (and soon PayPal?)
 * Minimize payment fees and choose your currency
-* Keep your funding information in Firebase
-  * and soon extendable to own DB solution?
+* Keep your funding information in Firebase (and soon extendable to own DB solution?)
 
 ## Setup
 
