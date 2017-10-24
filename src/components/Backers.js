@@ -11,10 +11,10 @@ const Backers = ({ fundings }) => (
         <h2>List of Backers</h2>
         <ul>
           {fundings.map(funding => (
-            <li key={funding.id}>
+            console.log(funding) || <li key={funding.id}>
               {funding.amount}
               <Currency currency={funding.currency} /> by{' '}
-              {funding.includeBacker ? funding.email : 'anonymous'}
+              {funding.username ? funding.username : 'anonymous'}
             </li>
           ))}
         </ul>

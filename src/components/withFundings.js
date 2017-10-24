@@ -17,13 +17,8 @@ const withFundings = Component =>
       const fundingsRef = database.ref('fundings');
 
       fundingsRef.on('child_added', snapshot => {
-        const { amount, includeBacker, email, currency } = snapshot.val();
-
         const funding = {
-          amount: +amount,
-          includeBacker,
-          email,
-          currency,
+          ...snapshot.val(),
           id: snapshot.key
         };
 
