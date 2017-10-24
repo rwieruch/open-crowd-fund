@@ -1,20 +1,27 @@
 # 🐣 Open Crowd Fund
 
-Your open source solution to crowd fund your own ideas and host it yourself. Reduce your fees to a minimum by using an own crowd funding solution as alternative to enterprise crowdfundings.
+Your open source solution to crowd fund your ideas. Take control over your fundings, stay flexible by creating the content for the funding campaign yourself, and minimize fees to a minimum by using an own crowd funding solution as alternative to enterprise crowdfunding applications.
 
 [Demo](https://www.concisejavascript.org/)
 
+* Use your own domain
+* Create your own content
+* Charge and secure fundings by Credit Card with Stripe (and soon PayPal?)
+* Minimize payment fees and choose your currency
+* Keep your funding information in Firebase (and soon extendable to own DB solution?)
+
 ## Setup
 
-* `git clone git@github.com:rwieruch/open-crowdfund.git`
-* `cd open-crowdfund`
+* `git clone git@github.com:rwieruch/open-crowd-fund.git`
+* `cd open-crowd-fund`
 * `npm install`
 * `gatsby develop`
-* visit http://localhost:8000/ after you have setup Firebase and Stripe (see below)
+* visit http://localhost:8000/ 
+* setup Firebase and Stripe (read External Services Setup)
 
 ### Client-side Setup
 
-The client-side project is this project. You just need to provide your configurational information for it and fill in your own content for your own crowd funding project (read Customize).
+The client-side project is this project. You just need to provide your configurational information for it and fill in your own content to crowd fund your idea (read Customize). In addition, you need to provide the following things in this project:
 
 * provide Firebase Credentials (read External Services Setup)
 * provide Stripe Credentials (read External Services Setup)
@@ -22,18 +29,21 @@ The client-side project is this project. You just need to provide your configura
 
 ### External Services Setup
 
-There are two external services that are used in this open source project: a firebase database and a stripe payment server.
+There are two external services that are used: a firebase database and a stripe payment server.
 
-Firebase is needed to store the funding information (e.g. who funded you and how much did they fund you). Firebase is an external service and doesn't need to be hosted by yourself.
+First, Firebase is needed to store the funding information (e.g. who funded you with how much fundings). Firebase is an external service and doesn't need to be hosted by yourself.
 
-Furthermore, the payment server is not included in this repository. There is another GitHub repository where you could simply clone partly the payment server. On the other hand, you could follow the provided tutorial to build your own minimal payment server from scratch. Here you get all the instructions on how to setup your payment server.
+Second, the payment server is not included in this repository. There is another GitHub repository where you could simply clone partly the payment server. On the other hand, you could follow the provided tutorial to build your own minimal payment server from scratch. Here you get all the instructions on how to setup your payment server.
 
-**Note:** You don't want to worry about a payment server or a database to collect the funding information? [Please let me know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowd%20Fund). If there is any interest in such service, I would love to provide an affordable solution for you. If you don't want to worry about the client-side, payment server and Firebase at all, please reach out to me as well. [Get on the list for updates](https://www.getrevue.co/profile/open-crowdfund) in case there will be a hosted solution.
+**Note:** You don't want to worry about a payment server or a database? [Please let me know](mailto:rwieruch@fastmail.com?Subject=Hello%20Open%20Crowd%20Fund). If there is any interest in such service, it would be interesting to provide such a solution. If you don't want to worry about the payment server, Firebase database and application setup at all, you can reach out to me as well. [Get on the list for updates](https://www.getrevue.co/profile/open-crowdfund) in case there will be any updates for a hosted solution.
 
 #### Firebase Setup
 
 * create a [Firebase account and a Firebase project](https://firebase.google.com/) (free)
-* modify the Firebase -> Database -> Rules (everyone can write to the database without creating an account):
+* modify the Firebase -> Database -> Rules
+ * everyone can write to the database
+ * thus no account creation necessary
+ * will be secured by domain restriction in another step though
 
 ```
 {
@@ -44,12 +54,12 @@ Furthermore, the payment server is not included in this repository. There is ano
 }
 ```
 
-* Application: add your Firebase credentials in *.env.development* and *.env.production*
- * there are two files, in case you have different Firebase databases for these two environments
- * but you can use the same configuration in both files if you are lazy
-* [Secure your Firebase Project with Domain Restriction in the Google Console](https://stackoverflow.com/questions/35418143/how-to-restrict-firebase-data-modification)
-  * otherwise other domains are able to write to your Firebase Database
-* optional: adjust your Firebase plan in case you are expecting spikes in traffic for your campaign
+* Client-side Application: add your Firebase credentials in *.env.development* and *.env.production*
+ * there are two files, in case you have a Firebase databases for each environment
+ * if you don't care, you can use the same configuration in both files
+* [Secure your Firebase project with domain restriction in the Google Console](https://stackoverflow.com/questions/35418143/how-to-restrict-firebase-data-modification)
+  * otherwise everyone from everwhere would be able to write to your Firebase database
+* optional: adjust your Firebase plan in case you are expecting spikes in traffic for your campaign announcement
 
 That's it for Firebase! You are now able to track your fundings and display your progress in the application.
 
@@ -58,9 +68,10 @@ That's it for Firebase! You are now able to track your fundings and display your
 Furthermore, you will need a Stripe payment server where you can receive your fundings. The payment server is not included in this repository. Please use the following tutorial to setup a small [payment server with Stripe](https://github.com/rwieruch/react-express-stripe). As alternative, feel free to use the payment server from [this repository](https://github.com/rwieruch/react-express-stripe). It is located in the backend folder. But make sure to read the tutorial once to understand what's happening in the payment flow.
 
 * Create a [Stripe Account](https://stripe.com/) (free)
-* Application: add your public Stripe API keys in *.env.development* and *.env.production*
-* Application: add your payment server URL in *.env.development* and *.env.production*
-  * e.g. http://localhost:8080 for development if your development payment server runs under this address, but http://yourdomain.com for your production payment server that you host with an own domain or IP address
+* Client-side Application: add your public Stripe API keys in *.env.development* and *.env.production*
+* Client-side Application: add your payment server URL in *.env.development* and *.env.production*
+  * e.g. http://localhost:8080 for development if your development payment server runs under this address
+  * http://yourdomain.com for your production payment server that you host with an own domain or IP address
 
 * start your payment server on the command line
   * verify that the localhost URL where it is started is the same as your payment server URL that is added in the client-side *.env.development*
@@ -70,8 +81,10 @@ Furthermore, you will need a Stripe payment server where you can receive your fu
 
 * run your client-side application and your payment server on the command line
 * visit your client-side application in the browser
-* fund the project with a [test credit card](https://stripe.com/docs/testing#cards)
-* verify 1) that the funding progress updates and 2) the test payment is visible in your Stripe dashboard
+* fund your own project with a [test credit card](https://stripe.com/docs/testing#cards)
+* verify 
+  * 1) that the funding progress updates in the client-side application
+  * 2) the test payment is visible in your Stripe dashboard
 * add your *.env.production* and *.env.development* to your .gitignore
 * you are ready to deploy it!
 
@@ -79,11 +92,12 @@ Furthermore, you will need a Stripe payment server where you can receive your fu
 
 * modify funding configuration in *src/configuration.js*
 * modify funding content in *src/Content.js*
-* use an own favion in *static/favicon* (e.g. use https://realfavicongenerator.net/)
-* add, remove or modify meta tags in *src/layouts/index.js*
-* add, remove or modify global style in *src/layouts/index.js*
-* add, remove or modify assets, such as images, in *static/*
-* add, remove or modify gatsby [plugins](https://www.gatsbyjs.org/docs/plugins/) in *gatsby-config.js*
+
+* optional: use an own favion in *static/favicon* (e.g. use https://realfavicongenerator.net/)
+* optional: add, remove or modify meta tags in *src/layouts/index.js*
+* optional: add, remove or modify global style in *src/layouts/index.js*
+* optional: add, remove or modify assets, such as images, in *static/*
+* optional: add, remove or modify gatsby [plugins](https://www.gatsbyjs.org/docs/plugins/) in *gatsby-config.js*
 
 ## Deploy to Production
 
@@ -107,17 +121,15 @@ You can contribute to the project. Contributing in three steps:
 * `npm install`
 * `node index.js`
 
-Follow further [installation instructions for the backend](https://github.com/rwieruch/react-express-stripe) to provide the necessary configuration (e.g. Stripe API keys).
+Follow further installation instructions for the [payment server](https://github.com/rwieruch/react-express-stripe) to provide the necessary configuration (e.g. Stripe API keys).
 
 ### Second Command Line Tab:
 
-* `git clone git@github.com:rwieruch/open-crowdfund.git`
-* `cd open-crowdfund`
+* `git clone git@github.com:rwieruch/open-crowd-fund.git`
+* `cd open-crowd-fund`
 * `npm install`
 * `gatsby develop`
 
 Follow further installation instructions from this README to provide the necessary configuration.
 
-* Formatting on the Command Line: `npm run format`
-
-Thanks for your contribution. I am looking forward to it.
+* Formatting with Prettier: `npm run format`
