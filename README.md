@@ -1,6 +1,6 @@
 # 🐣 Open Crowd Fund
 
-Your open source solution to crowd fund your ideas. Open crowd fund is an alternative to all the enterprise crowdfunding platforms and applications. You can do it yourself. Take control over your project fundings, stay flexible by creating the content yourself, and minimize the fees by cutting out the middlemen.
+Your open source solution to crowd fund your ideas. Open crowd fund is an alternative to all the enterprise crowdfunding platforms and applications. You can do it yourself. Take control over your project fundings, stay flexible by creating the content yourself, and minimize the fees by cutting out the middlemen. Everything you need is to host it yourself.
 
 [Demo (yet a real Campaign)](https://www.concisejavascript.org/) | Powered by [Gatsby](https://github.com/gatsbyjs/gatsby)
 
