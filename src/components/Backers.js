@@ -11,7 +11,7 @@ const Backers = ({ fundings }) => (
         <h2>List of Backers</h2>
         <ul>
           {fundings.map(funding => (
-            console.log(funding) || <li key={funding.id}>
+            <li key={funding.id}>
               {funding.amount}
               <Currency currency={funding.currency} /> by{' '}
               {funding.username ? funding.username : 'anonymous'}
