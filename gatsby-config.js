@@ -1,4 +1,4 @@
-const GOOGLE_ANALYTICS_TRACKING_ID = 'UA-65599459-7';
+const GOOGLE_ANALYTICS_TRACKING_ID = 'UA-65599356-7';
 
 module.exports = {
   siteMetadata: {
