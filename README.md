@@ -2,7 +2,7 @@
 
 Your minimal yet powerful open source solution to crowd fund your ideas. Open crowd fund is an alternative to all the enterprise crowdfunding platforms and applications. You can do it yourself. Take control over your project fundings, stay flexible by creating the content yourself, and minimize the fees by cutting out the middlemen. Everything you need is to host it yourself.
 
-[Demo (yet a real Campaign)](https://www.concisejavascript.org/) | Powered by [Gatsby](https://github.com/gatsbyjs/gatsby)
+[Demo (yet a real Campaign)](https://www.roadtolearnreact.com/) | Powered by [Gatsby](https://github.com/gatsbyjs/gatsby)
 
 * Use your own domain
 * Create your own content
@@ -16,7 +16,7 @@ Your minimal yet powerful open source solution to crowd fund your ideas. Open cr
 * `cd open-crowd-fund`
 * `npm install`
 * `gatsby develop`
-* visit http://localhost:8000/ 
+* visit http://localhost:8000/
 * setup Firebase and Stripe (read External Services Setup)
 
 ### Client-side Setup
@@ -82,7 +82,7 @@ Furthermore, you will need a Stripe payment server where you can receive your fu
 * run your client-side application and your payment server on the command line
 * visit your client-side application in the browser
 * fund your own project with a [test credit card](https://stripe.com/docs/testing#cards)
-* verify 
+* verify
   * 1) that the funding progress updates in the client-side application
   * 2) the test payment is visible in your Stripe dashboard
 * add your *.env.production* and *.env.development* to your .gitignore
