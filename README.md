@@ -2,13 +2,13 @@
 
 Your minimal yet powerful open source solution to crowd fund your ideas. Open crowd fund is an alternative to all the enterprise crowdfunding platforms and applications. You can do it yourself. Take control over your project fundings, stay flexible by creating the content yourself, and minimize the fees by cutting out the middlemen. Everything you need is to host it yourself.
 
-[Demo (yet a real Campaign)](https://www.roadtolearnreact.com/) | Powered by [Gatsby](https://github.com/gatsbyjs/gatsby)
+[Demo](https://www.roadtolearnreact.com/) | Powered by [Gatsby](https://github.com/gatsbyjs/gatsby)
 
 * Use your own domain
 * Create your own content
-* Charge and secure fundings by Credit Card with Stripe (and soon PayPal?)
+* Charge and secure fundings by Credit Card with Stripe
 * Minimize payment fees and choose your currency
-* Keep your funding information in Firebase (and soon extendable to own DB solution?)
+* Keep your funding information in Firebase
 
 ## Setup
 
@@ -34,8 +34,6 @@ There are two external services that are used: a firebase database and a stripe 
 First, Firebase is needed to store the funding information (e.g. who funded you with how much fundings). Firebase is an external service and doesn't need to be hosted by yourself.
 
 Second, the payment server is not included in this repository. There is another GitHub repository where you could simply clone partly the payment server. On the other hand, you could follow the provided tutorial to build your own minimal payment server from scratch. Here you get all the instructions on how to setup your payment server.
-
-**Note:** You don't want to worry about a payment server or a database? [Please let me know](mailto:opencrowdfund@gmail.com?Subject=Hello%20Open%20Crowd%20Fund). If there is any interest in such service, it would be interesting to provide such a solution. If you don't want to worry about the payment server, Firebase database and application setup at all, you can reach out to me as well. [Get on the list for updates](https://www.getrevue.co/profile/open-crowdfund) in case there will be any updates for a hosted solution.
 
 #### Firebase Setup
 
