@@ -7,7 +7,7 @@ const CONFIGURATION = {
 
   // Checkout Form
   checkoutTitle: 'Thank you!',
-  checkoutDescription: 'JavaScript eBook Funding', // will show up in your Stripe payment dashboard too
+  checkoutDescription: 'eBook Funding', // will show up in your Stripe payment dashboard too
   checkoutButtonLabel: 'Fund',
   callToAction: 'Fund it!',
   defaultAmount: 25
