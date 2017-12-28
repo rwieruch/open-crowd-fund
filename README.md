@@ -1,5 +1,7 @@
 # 🐣 Open Crowd Fund
 
+[![Build Status](https://travis-ci.org/rwieruch/open-crowd-fund.svg?branch=master)](https://travis-ci.org/rwieruch/open-crowd-fund)
+
 Your minimal yet powerful open source solution to crowd fund your ideas. Open crowd fund is an alternative to all the enterprise crowdfunding platforms and applications. You can do it yourself. Take control over your project fundings, stay flexible by creating the content yourself, and minimize the fees by cutting out the middlemen. Everything you need is to host it yourself.
 
 [Demo](https://www.roadtolearnreact.com/) | Powered by [Gatsby](https://github.com/gatsbyjs/gatsby)
